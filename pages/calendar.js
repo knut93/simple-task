@@ -1,15 +1,32 @@
 import React, { Component, useState, useRef} from "react";
+import bg from '../img/nightsky.jpg'
+
+const FirstWeekRow = () => {
+    return (
+        //<div className="flex flex-row min-w-[90%] mx-auto">
+        <div className="">
+            <DayItem day={'SUN'}/>
+            <DayItem day={'MON'}/>
+            <DayItem day={'TUE'}/>
+            <DayItem day={'WED'}/>
+            <DayItem day={'THU'}/>
+            <DayItem day={'FRI'}/>
+            <DayItem day={'SAT'}/>
+        </div>
+    )
+}
 
 const WeekRow = () => {
     return (
-        <div className="flex flex-row min-w-[90%] mx-auto space-x-5 px-5 py-5">
-            <DayItem day={'Sunday'}/>
-            <DayItem day={'Monday'}/>
-            <DayItem day={'Tuesday'}/>
-            <DayItem day={'Wednesday'}/>
-            <DayItem day={'Thursday'}/>
-            <DayItem day={'Friday'}/>
-            <DayItem day={'Saturday'}/>
+       
+        //<div className="flex flex-row min-w-[90%] mx-auto">
+        <div>
+            <DayItem />
+            <DayItem />
+            <DayItem />
+            <DayItem />
+            <DayItem />
+            <DayItem />
         </div>
     )
 }
@@ -20,7 +37,7 @@ const DayItem = (props) => {
 
     return (
         <>
-            <div className="font-bold w-full border-2 border-red-600 rounded">{day}
+            <div className="bg-white font-bold w-full border-1 border-gray-600 rounded">{day}
                 <div className="font-light">
                     <p>Paragraph 1</p>
                     <p>Paragraph 2</p>
@@ -36,15 +53,13 @@ const Calendar = () => {
     const [] = useState();
 
     return ( 
-        <div className="flex-1">
-            <div className="flex flex-col h-full justify-center">
+        <div className="flex-1 grid grid-cols-7 h-full bg-nsky bg-snowblue bg-no-repeat bg-bottom">
+                <FirstWeekRow />
                 <WeekRow />
                 <WeekRow />
                 <WeekRow />
                 <WeekRow />
                 <WeekRow />
-                <WeekRow />
-            </div>
         </div>
     )
 }

@@ -9,7 +9,14 @@ module.exports = {
     fontFamily: {
       'sans': ['Quicksand',...defaultTheme.fontFamily.sans]
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'nsky' : "url('../img/snowy.svg')",
+      },
+      colors: {
+        'snowblue' : '#d5eaf1',
+      },
+    },
   },
   plugins: [],
 }

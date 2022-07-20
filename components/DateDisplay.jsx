@@ -1,14 +1,16 @@
 import React from "react";
+import { GetMonth } from "../components/GetMonth"
 
 export default function DateDisplay() {
-        const locale = 'en';
+  console.table(GetMonth(1))
+    const locale = 'en';
     const [today, setDate] = React.useState(new Date()); // Save the current date to be able to trigger an update
   
     React.useEffect(() => {
         const timer = setInterval(() => { // Creates an interval which will update the current data every minute
         // This will trigger a rerender every component that uses the useDate hook.
         setDate(new Date());
-      },    1000);
+      }, 60 * 1000);
       return () => {
         clearInterval(timer); // Return a function to clear the timer so that it will stop being called on unmount
       }
@@ -24,10 +26,12 @@ export default function DateDisplay() {
   
     return (
       <>
-      <div className="text-center pt-5">
+      <div className="flex justify-center py-2 shadow-md">
+        <div className="flex justify-around w-3/4 text-xl">
         <div>{wish}</div>
         <div>{date}</div>
         <div>{time}</div>
+        </div>
       </div>
       </>
     )
