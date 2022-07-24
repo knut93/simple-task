@@ -4,7 +4,7 @@ import GlobalContext from "../context/GlobalContext"
 
 
 export default function EventModal() {
-    const labelClass = ['pink','blue'];
+    const labelClass = ['bg-red-500','bg-blue-500','bg-teal-500','bg-pink-500','bg-gray-400','bg-orange-500','bg-purple-500'];
     const {setShowEventModal, daySelected} = useContext(GlobalContext)
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
@@ -56,8 +56,7 @@ export default function EventModal() {
                         <div className="flex gap-x-2">
                             {labelClass.map((lblClass, labelIndex) => (
                                 <span key={labelIndex}
-                                    className={`bg-blue-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
-                                    style={{backgroundColor: `${lblClass[labelIndex]}`}}
+                                    className={`${lblClass} w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
                                 >
                                 </span>
                             ))}

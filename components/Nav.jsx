@@ -7,7 +7,7 @@ export default function Nav() {
                 <div className="mr-auto text-2xl">pal.endar</div>
                 <div className="ml-auto space-x-3">
                     <Link href='/'>Home</Link>
-                    <Link href='/calendarclone'>Calendar</Link>
+                    <Link href='/calendar'>Calendar</Link>
                     <Link href='/week'>Week Block</Link>
                 </div>
             </div>
