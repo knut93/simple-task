@@ -10,6 +10,9 @@ module.exports = {
       'sans': ['Quicksand',...defaultTheme.fontFamily.sans]
     },
     extend: {
+      gridTemplateColumns: {
+        "1/5": "1fr 5fr"
+      },
       backgroundImage: {
         'nsky' : "url('../img/snowy.svg')",
       },

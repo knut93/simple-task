@@ -2,7 +2,7 @@ import dayObj from "dayjs"
 
 export default function Day({day, rowIndex}) {
     function getCurrentDayClass() {
-        return day.format('DD-MM-YY') === dayObj().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded w-7' : ''
+        return day.format('DD-MM-YY') === dayObj().format("DD-MM-YY") ? 'bg-blue-600 text-white rounded-full w-7' : ''
     }
 
     return (
