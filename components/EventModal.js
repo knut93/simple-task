@@ -2,9 +2,12 @@ import { loadGetInitialProps } from "next/dist/shared/lib/utils"
 import { useContext, useEffect, useState } from "react"
 import GlobalContext from "../context/GlobalContext"
 
+const labels = ['pink', 'gray', 'green', 'blue', 'red', 'purple']
+
 export default function EventModal() {
-    const {setShowEventModal} = useContext(GlobalContext)
+    const {setShowEventModal, daySelected} = useContext(GlobalContext)
     const [title, setTitle] = useState('')
+    const [description, setDescription] = useState('')
     useEffect(() => {
         const close = (e) => {
             if(e.keyCode === 27) {
@@ -27,7 +30,38 @@ export default function EventModal() {
                 <div className="p-3">
                     <div className="grid grid-cols-1/5 items-end gap-y-7">
                         <div></div>
-                        <input type="text" name="title" placeholder="Add title" value={title} required className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500" onChange={(e) => setTitle(e.target.value)}/>
+                        <input 
+                        type="text" 
+                        name="title" 
+                        placeholder="Add title" 
+                        value={title} 
+                        required 
+                        className="pt-3 border-0 text-gray-600 text-xl font-semibold pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500" 
+                        onChange={(e) => setTitle(e.target.value)}/>
+
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <p>{daySelected.format("dddd, MMMM DD")}</p>
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
+
+                        <input 
+                        type="text" 
+                        name="description" 
+                        placeholder="Add a description" 
+                        value={description} 
+                        required 
+                        className="pt-3 border-0 text-gray-600 pb-2 w-full border-b-2 border-gray-200 focus:outline-none focus:ring-0 focus:border-blue-500" 
+                        onChange={(e) => setDescription(e.target.value)}/>
+
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" /></svg>
+                        <div className="flex gap-x-2">
+                            {labels.map((labelClass, index) => (
+                                <span key={index}
+                                    className={`bg-${labelClass}-500 w-6 h-6 rounded-full flex items-center justify-center cursor-pointer`}
+                                >
+                                    
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </form>
